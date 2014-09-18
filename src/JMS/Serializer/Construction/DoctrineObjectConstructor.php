@@ -81,7 +81,7 @@ class DoctrineObjectConstructor implements ObjectConstructorInterface
                 $dataName = $name;
             }
 
-            if (!array_key_exists($dataName, $data)) {
+            if (!array_key_exists($dataName, $data) || null === $data[$dataName]) {
                 return $this->fallbackConstructor->construct($visitor, $metadata, $data, $type, $context);
             }
 
